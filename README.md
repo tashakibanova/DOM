@@ -1,2 +1,3 @@
 # DOM
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+https://ci.appveyor.com/project/tashakibanova/dom/settings/badges
+![CI](https://github.com/tashakibanova/DOM/actions/workflows/web.yml/badge.svg)
