@@ -1,28 +1,64 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+'use strict';
+
+const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
-    entry: {
-        main: path.resolve(__dirname, './src/js/game.js'),
-    },
-    output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: '[name].bundle.js',
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            title: 'webpack Boilerplate',
-            template: path.resolve(__dirname, 'template.html'), // шаблон
-            filename: 'index.html', // название выходного файла
-        }),
-    ],
-    module: {
-        rules: [
-            // изображения
-            {
-                test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-                type: 'asset/resource',
-            },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+  },
+  stats: {
+    children: true // Включение информации о детском компиляторе
+  },
+  //entry:'./src/js/game.js',
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+          },
         ],
-    },
-}
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+        ],
+      },
+    ],
+  },
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(),
+    ],
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: 'index.html',
+      filename: 'index.html',
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
+  ],
+};
