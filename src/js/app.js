@@ -1,8 +1,8 @@
 //import image from '../img/goblin.png';
 
 document.addEventListener("DOMContentLoaded", function() {
-    const gameField = document.querySelector('.game-field');
-    const character = document.createElement('img');
+    let gameField = document.querySelector('.game-field');
+    let character = document.createElement('img');
     character.setAttribute('src', '../img/goblin.png');
     //character.setAttribute('src', image);
     character.style.position = 'absolute';
