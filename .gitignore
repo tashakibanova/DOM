@@ -1,5 +1,7 @@
 dist
 doc
+index.js
+__tests__
 
 # Logs
 logs

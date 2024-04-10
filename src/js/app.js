@@ -1,6 +1,6 @@
 //import image from '../img/goblin.png';
 
-export default document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     const gameField = document.querySelector('.game-field');
     const character = document.createElement('img');
     character.setAttribute('src', '../img/goblin.png');
