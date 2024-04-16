@@ -7,6 +7,8 @@ body {
     align-items: center;
 }
 
+
+
 .game-field {
     width: 400px;
     height: 400px;
@@ -19,4 +21,11 @@ img {
     width: 100px;
     height: 100px;
     object-fit: contain;
+}
+
+.score {
+    padding-left: 5px;
+}
+.misses {
+    padding-left: 5px;   
 }
