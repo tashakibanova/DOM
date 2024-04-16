@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack-dev-server --mode development --open",
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "test": "jest",
     "coverage": "jest --coverage",
     "preshow:coverage": "npm run coverage",
